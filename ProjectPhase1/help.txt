@@ -1,0 +1,102 @@
+1. About setting up the project:
+    You do not need do anything to set up the project. It would automatically set up with the
+    contents from Setup.txt when you first time run the main method (StoreSimulation.main()).
+
+2. Format of Setup.txt:
+    Each line represents one product.
+
+    Specifically, the format of each line is:
+    SetUp, UPC, name, orderPrice, orderQuantity, section-subsection, aisleNumber, threshold, sellingPrice
+    ex:
+    SetUp, 123456789012, Apple, 1, 300, Produce-Fruit, A123, 100, 2
+
+3. Format of events.txt:
+    Each line represents one action. There are 5 kinds of events of products, and 4 kinds to users.
+
+    Events of products: Discount, Sale, Reorder, Received, Order.
+        Discount: it means that there is a discount on one kind of product. It should occur at
+            the beginning of each day.
+
+             The format is:
+             Discount, UPC, discount(float), startDate, endDate
+             ex:
+             Discount, 282829104811, 0.6, 20170701, 20170730
+
+        Sale: it represents the selling of product.
+
+            The format is:
+            Sale, UPC, salePrice, saleQuantity
+            ex:
+            Sale, 123456789012, 3, 230
+
+        Reorder: it represents sending the reorder message and paying for the order cost.
+
+             The default quantity is 3 * threshold
+             The format is:
+             Reorder, UPC, orderPrice, distributor
+             , or
+             Reorder, UPC, orderPrice, distributor, orderQuantity
+             ex:
+             Reorder, 462394713827, 12, SalmonCompany, 34
+
+        Received: it represents receiving some reorder and removing the reorder from
+              the pending reorder list.
+
+              The format is:
+              Received, UPC
+              ex:
+              Received, 462394713827
+
+        Order: it represents ordering and receiving some new kinds of products. (Similar to SetUp).
+
+             The format is:
+             (The same format with SetUp)
+             SetUp, UPC, name, orderPrice, orderQuantity, section-subsection, aisleNumber, threshold
+
+    Events of users: Manager, Receiver, Reshelver, Cashier.
+        Manager: They may want to view a list of pending orders (PendingOrder),
+            view daily total sales (Revenue), and view daily total profit (Profit).
+
+            The format is:
+            Manager, PendingOrder/Revenue/Profit
+            ex:
+            Manager, Revenue
+
+        Receiver: They will scan in new items into inventory and also new units of a pre-existing
+            item; view location (Location), cost, price history, and current price of a product.
+
+            The format is:
+            Receiver, UPC, Add/Location/PriceHistory
+            ex:
+            Receiver, 462394713827, Add, 20
+            Receiver, 462394713827, Location
+            Receiver, 462394713827, PriceHistory
+
+        Reshelver: They may need to access the location of a product (ChangeLocation),
+        order history (OrderHistory), and the current quantity in store (Quantity).
+
+            The format is:
+            Reshelver, UPC, (ChangeLocation, aisleNumber)/Quantity/OrderHistory
+            ex:
+            Reshelver, 462394713827, ChangeLocation, A233
+            Reshelver, 462394713827, Quantity
+            Reshelver, 462394713827, OrderHistory
+
+        Cashier: They will scan to (take item out of inventory, changes the quantity stored by the
+            latest price) (Take), and check for start and end dates of any sale that applies to a
+            scanned item (Check).
+
+            The format is:
+            Cashier, 462394713827, (Take, Quantity)/Check
+            ex:
+            Cashier, 462394713827, Take, 20
+            Cashier, 462394713827, Check
+
+3. The project uses the local date.
+
+4. We have also accomplished the console-input part, which means you could also type users' events
+    in the console by following the instructions. You need comment out line 328-330 to activate it.
+    Note that this is just extra work.
+
+
+

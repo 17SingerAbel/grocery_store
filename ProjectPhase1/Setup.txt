@@ -1,0 +1,17 @@
+SetUp, 123456789012, Apple, 1, 300, Produce-Fruit, A123, 100, 3, AppleCompany
+SetUp, 432874613213, Milk, 4, 90, Dairy-Milk, B024, 30, 5, MilkCompany
+SetUp, 847392857207, Yogurt, 5, 90, Dairy-Milk, B023, 30, 5, YogurtCompany
+SetUp, 839019261092, ChocolateMilk, 5.5, 60, Dairy-Milk, B025, 20, 6.5, ChocolateMilkCompany
+SetUp, 657192746287, Bacon, 9, 30, Meat-Pork, C011, 10, 10, BaconCompany
+SetUp, 539274910376, Ham, 13, 30, Meat-Pork, C013, 10, 14, HamCompany
+SetUp, 726351956208, PaperTower, 4, 90, KitchenWares-Tissue, D111, 30, 5, PaperTowerCompany
+SetUp, 973873619276, BallCleaner, 2, 60, CleaningSupplies-IronicSupplies, G032, 20, 4, BallCleanerCompany
+SetUp, 475974927385, Oat, 10, 60, PackagedProduct-Grain, E044, 20, 11, OatCompany
+SetUp, 462394713827, Salmon, 12, 33, FrozenFood-Fish, F036, 11, 13, SalmonCompany
+SetUp, 282829104811, Broccoli, 2, 99, Produce-Vegetable, A200, 33, 3, BroccoliCompany
+SetUp, 472829462886, DogTreat, 20, 75, PetFood-Dog Food, I212, 15, 23, DogTreatCompany
+SetUp, 483919485630, Gloves, 60, 60, SeasonalProduct-Clothes, H321, 20, 61, GlovesCompany
+SetUpWorker, 1, 2, Cashier
+SetUpWorker, 2, 3, Manager
+SetUpWorker, 3, 4, Receiver
+SetUpWorker, 4, 5, Reshelver
